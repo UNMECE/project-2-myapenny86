@@ -111,7 +111,7 @@ public Student
 			return artEmphasis;
 		}
 
-		void displayInfo(std::ofstream &outfile) const
+		void displayInfo(std::ofstream &outfile) const override
 		{
 			Student::displayInfo(outfile);
 			outfile << "Art Emphasis: " << artEmphasis << "\n";
@@ -137,7 +137,7 @@ public Student
 			return concentration;
 		}
 
-		void displayInfo(std::ofstream &outfile) const
+		void displayInfo(std::ofstream &outfile) const override
 		{
 			Student::displayInfo(outfile);
 			outfile << "Concentration: " << concentration << "\n";
@@ -153,6 +153,13 @@ int main()
 	{
 		artStudent *art = new artStudent;
 		art->setName("ArtFirst" + std::to_string(i), "ArtLast" + std::to_string(i));
+		art->setGPA(3.5 + i * 0.1);
+		art->setGraduationYear(2025 + i);
+		art->setGraduationSemester("Spring");
+		art->setEnrolledYear(2021 + i);
+		art->setEnrolledSemester("Fall");
+		art->setDegreeLevel("Undergrad");
+		art->setArtEmphasis(i % 3 == 0 ? "Art Studio" : (i % 3 == 1 ? "Art History" : "Art Education"));
 		art_students.push_back(art);
 	}
 
@@ -160,6 +167,13 @@ int main()
 	{
 		physicsStudent *phys = new physicsStudent;
 		phys->setName("PhysFirst" + std::to_string(i), "PhysLast" + std::to_string(i));
+		phys->setGPA(3.6 + i * 0.1);
+		phys->setGraduationYear(2026 + i);
+		phys->setGraduationSemester("Fall");
+		phys->setEnrolledYear(2022 + i);
+		phys->setEnrolledSemester("Spring");
+		phys->setDegreeLevel("Grad";
+		phys->setConcentration(i % 2 == 0 ? "Biophysics" : "Earth and Planetary Sciences");
 		physics_students.push_back(phys);
 	}
 
